@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MDM SUPPLEMENTS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: white;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+                              url('https://i.postimg.cc/Ny9mrf96/your-background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            max-height: 680px;
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:active {
+            transform: scale(0.96);
+        }
+        
+        .add-btn:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body class="pb-32">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 bg-black border-b border-white/10 z-50">
+        <div class="flex items-center justify-between px-4 py-4">
+            <div class="flex items-center gap-3">
+                <img src="https://i.postimg.cc/PTtfDpGS/Whats-App-Image-2026-04-06-at-00-20-34-removebg-preview.png" 
+                     alt="Logo" class="w-11 h-11">
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tighter">MDM</h1>
+                    <p class="text-xs text-emerald-400 tracking-widest -mt-1">SUPPLEMENTS</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <!-- Cart Icon -->
+                <button onclick="showCart()" class="relative">
+                    <i class="fa-solid fa-shopping-bag text-3xl text-emerald-400"></i>
+                    <span id="cart-count" 
+                          class="absolute -top-1 -right-2 bg-emerald-400 text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+                
+                <a href="https://wa.me/212618194707" target="_blank">
+                    <i class="fa-brands fa-whatsapp text-3xl text-emerald-400"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-bg flex flex-col items-center justify-center text-center pt-16">
+        <img src="https://i.postimg.cc/PTtfDpGS/Whats-App-Image-2026-04-06-at-00-20-34-removebg-preview.png" 
+             alt="MDM Logo" class="w-36 mb-6">
+        
+        <h2 class="text-5xl font-black leading-none tracking-tighter mb-2">GYM GAINS</h2>
+        <p class="text-emerald-400 text-xl font-semibold mb-10">Premium Creatine Supplements</p>
+        
+        <a href="#products" 
+           class="block mx-6 bg-emerald-400 text-black font-bold py-5 px-10 rounded-3xl text-lg shadow-lg shadow-emerald-400/50">
+            SHOP NOW
+        </a>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="px-4 pt-10 pb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Our Creatines</h2>
+        
+        <div class="grid grid-cols-2 gap-4" id="products-grid">
+            <!-- Products added by JavaScript -->
+        </div>
+    </section>
+
+    <!-- DESCRIPTION + SOCIAL BUTTONS -->
+    <div class="px-6 pb-10">
+        <div class="bg-zinc-900 rounded-3xl p-8 text-center">
+            <h3 class="text-2xl font-bold mb-4">MDM SUPPLEMENTS</h3>
+            <p class="text-white/70 leading-relaxed text-[15px]">
+                Premium gym supplements for serious athletes in Casablanca.<br><br>
+                High quality creatine to help you build strength, increase power and recover faster. 
+                All products are 100% original with fast local delivery.
+            </p>
+            
+            <!-- Big Social Buttons -->
+            <div class="mt-10 flex flex-col gap-4">
+                <a href="https://wa.me/212618194707" target="_blank"
+                   class="flex items-center justify-center gap-4 bg-emerald-400 hover:bg-emerald-300 text-black font-bold py-6 rounded-3xl text-xl shadow-xl">
+                    <i class="fa-brands fa-whatsapp text-4xl"></i>
+                    <span>ORDER VIA WHATSAPP</span>
+                </a>
+                
+                <a href="https://www.instagram.com/mdm_supplements" target="_blank"
+                   class="flex items-center justify-center gap-4 border-2 border-white/60 hover:border-white font-bold py-6 rounded-3xl text-xl">
+                    <i class="fa-brands fa-instagram text-4xl"></i>
+                    <span>FOLLOW ON INSTAGRAM</span>
+                </a>
+            </div>
+        </div>
+        
+        <p class="text-center text-xs text-white/40 mt-8">
+            Casablanca, Morocco • © 2026 MDM Supplements
+        </p>
+    </div>
+
+    <!-- CART MODAL -->
+    <div id="cart-modal" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-end">
+        <div class="bg-zinc-950 w-full rounded-t-3xl p-6 max-h-[85vh] overflow-auto">
+            <div class="flex justify-between items-center mb-6 sticky top-0 bg-zinc-950 py-2">
+                <h3 class="text-2xl font-bold">Your Cart</h3>
+                <button onclick="hideCart()" class="text-4xl text-white/60">&times;</button>
+            </div>
+            
+            <div id="cart-items" class="space-y-5 mb-8">
+                <!-- Filled by JS -->
+            </div>
+            
+            <div class="flex gap-3">
+                <button onclick="clearCart()" 
+                        class="flex-1 border border-white/40 py-5 rounded-3xl font-bold text-lg">
+                    CLEAR CART
+                </button>
+                <button onclick="sendOrderToWhatsApp(); hideCart()" 
+                        class="flex-1 bg-emerald-400 text-black py-5 rounded-3xl font-bold text-lg">
+                    SEND TO WHATSAPP
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: "Creatine Applied Nutrition", image: "https://i.postimg.cc/sGFc2GTQ/your-image1.jpg", price: 249 },
+            { id: 2, name: "DY CREATINE", image: "https://i.postimg.cc/Z03HMjqr/your-image2.jpg", price: 229 },
+            { id: 3, name: "biotechUSA", image: "https://i.postimg.cc/tYjkQP1f/your-image3.jpg", price: 269 },
+            { id: 4, name: "7NUTRITION", image: "https://i.postimg.cc/7fk987G4/your-image4.jpg", price: 239 }
+        ]
+
+        let cart = []
+
+        function renderProducts() {
+            const container = document.getElementById('products-grid')
+            container.innerHTML = ''
+            
+            products.forEach(product => {
+                const card = `
+                <div class="product-card bg-zinc-900 rounded-3xl overflow-hidden border border-white/10">
+                    <div class="aspect-square bg-black p-6 flex items-center justify-center">
+                        <img src="${product.image}" class="w-full h-full object-contain" alt="${product.name}">
+                    </div>
+                    <div class="p-4">
+                        <p class="font-semibold text-sm leading-tight mb-3">${product.name}</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-emerald-400 font-mono text-2xl">${product.price}</span>
+                                <span class="text-xs text-white/50"> MAD</span>
+                            </div>
+                            <button onclick="addToCart(${product.id}); event.stopPropagation()" 
+                                    class="add-btn bg-emerald-400 text-black px-7 py-3 rounded-2xl font-bold text-sm">
+                                ADD
+                            </button>
+                        </div>
+                    </div>
+                </div>`
+                container.innerHTML += card
+            })
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id)
+            const existing = cart.find(item => item.id === id)
+            
+            if (existing) {
+                existing.quantity = (existing.quantity || 1) + 1
+            } else {
+                cart.push({...product, quantity: 1})
+            }
+            
+            updateCartCount()
+            
+            // Feedback
+            const notif = document.createElement('div')
+            notif.className = "fixed bottom-28 left-1/2 -translate-x-1/2 bg-emerald-400 text-black px-8 py-3 rounded-3xl text-sm font-medium shadow-2xl z-[200]"
+            notif.textContent = "Added ✓"
+            document.body.appendChild(notif)
+            setTimeout(() => notif.remove(), 1200)
+        }
+
+        function updateCartCount() {
+            const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0)
+            document.getElementById('cart-count').textContent = total
+        }
+
+        function showCart() {
+            if (cart.length === 0) {
+                alert("Your cart is empty! Add some products first.")
+                return
+            }
+            renderCartItems()
+            document.getElementById('cart-modal').classList.remove('hidden')
+            document.getElementById('cart-modal').classList.add('flex')
+        }
+
+        function hideCart() {
+            document.getElementById('cart-modal').classList.add('hidden')
+            document.getElementById('cart-modal').classList.remove('flex')
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items')
+            container.innerHTML = ''
+            
+            cart.forEach((item, index) => {
+                const qty = item.quantity || 1
+                const itemHTML = `
+                <div class="flex items-center gap-4 bg-zinc-900 rounded-3xl p-4">
+                    <img src="${item.image}" class="w-20 h-20 object-contain bg-black rounded-2xl">
+                    <div class="flex-1">
+                        <p class="font-semibold text-base">${item.name}</p>
+                        <p class="text-emerald-400 text-sm">${qty} × ${item.price} MAD</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-1">
+                        <button onclick="changeQuantity(${index}, 1)" class="w-8 h-8 flex items-center justify-center text-emerald-400 text-2xl">+</button>
+                        <span class="font-bold text-lg">${qty}</span>
+                        <button onclick="changeQuantity(${index}, -1)" class="w-8 h-8 flex items-center justify-center text-white/70 text-2xl">-</button>
+                    </div>
+                    <button onclick="removeFromCart(${index})" class="text-red-400 ml-3">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>`
+                container.innerHTML += itemHTML
+            })
+        }
+
+        function changeQuantity(index, change) {
+            let qty = cart[index].quantity + change
+            if (qty < 1) qty = 1
+            cart[index].quantity = qty
+            renderCartItems()
+            updateCartCount()
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1)
+            renderCartItems()
+            updateCartCount()
+            if (cart.length === 0) hideCart()
+        }
+
+        function clearCart() {
+            if (confirm("Clear all items from cart?")) {
+                cart = []
+                updateCartCount()
+                hideCart()
+            }
+        }
+
+        function sendOrderToWhatsApp() {
+            if (cart.length === 0) return
+            
+            let message = "🟢 *MDM SUPPLEMENTS ORDER*\n\n"
+            
+            cart.forEach(item => {
+                const qty = item.quantity || 1
+                message += `${qty}x ${item.name} - ${item.price} MAD\n`
+            })
+            
+            const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0)
+            const totalPrice = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0)
+            
+            message += `\n*Total Items:* ${totalItems}\n`
+            message += `*Total Price:* ${totalPrice} MAD\n\n`
+            message += "Please confirm availability and delivery details."
+            
+            const whatsappUrl = `https://wa.me/212618194707?text=${encodeURIComponent(message)}`
+            window.open(whatsappUrl, '_blank')
+        }
+
+        // Initialize
+        window.onload = () => {
+            renderProducts()
+            updateCartCount()
+        }
+    </script>
+</body>
+</html>
